@@ -42,10 +42,20 @@ public class Horse extends Animal {
                 this.getBreed()
         );
 
-//        @Override
-//        public int hashCode() {
-//            return -31 * Objects.hash(name, power, getBreed());
-//        }
 
+    }
+
+    @Override
+    public int hashCode() {
+        return -25 * Objects.hash(name, power, getBreed());
+
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || this.getClass() != o.getClass()) return false;
+        Horse that = (Horse) o;
+        return name.equals(that.name) && power.equals(that.power) && getBreed().equals(that.getBreed());
     }
 }

@@ -1,5 +1,7 @@
 package ar.com.ada.online.second.inheritanceextends.zoo;
 
+import java.util.Objects;
+
 public class Dog extends Animal {
 
     private Integer legs;
@@ -40,5 +42,20 @@ public class Dog extends Animal {
                 this.getBreed()
         );
 
+
+    }
+
+    @Override
+    public int hashCode() {
+        return -25 * Objects.hash(legs, age, getBreed());
+
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || this.getClass() != o.getClass()) return false;
+        Dog that = (Dog) o;
+        return legs.equals(that.legs) && age.equals(that.age) && getBreed().equals(that.getBreed());
     }
 }
